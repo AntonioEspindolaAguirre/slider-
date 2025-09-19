@@ -1,89 +1,341 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Carrusel Owl + Tailwind</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-  <style>
-    /* Botones personalizados con Tailwind */
-    .owl-nav button {
-      @apply absolute top-1/2 -translate-y-1/2 bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg;
-    }
-    .owl-nav .owl-prev { left: -20px; }
-    .owl-nav .owl-next { right: -20px; }
-    .owl-nav button:hover { @apply bg-blue-700; }
-  </style>
-</head>
-<body class="bg-gray-100 p-10">
-
-  <div class="container mx-auto">
-    <h2 class="text-2xl font-bold mb-6 text-center">Nuestros Servicios</h2>
-
-    <div class="owl-carousel owl-theme relative">
-      <!-- Tarjeta 1 -->
-      <div class="item bg-white rounded-lg shadow p-5 text-center">
-        <img class="mx-auto mb-4 w-20 h-20" src="https://placehold.co/80x80/ff6666/fff?text=1" alt="">
-        <h3 class="text-lg font-semibold mb-2">Crédito Grupal</h3>
-        <p class="text-gray-600 mb-3">Capital para actividades lícitas y mejoras de vivienda.</p>
-        <a href="#grupal" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Solicitar</a>
-      </div>
-
-      <!-- Tarjeta 2 -->
-      <div class="item bg-white rounded-lg shadow p-5 text-center">
-        <img class="mx-auto mb-4 w-20 h-20" src="https://placehold.co/80x80/66ccff/fff?text=2" alt="">
-        <h3 class="text-lg font-semibold mb-2">Crédito Individual</h3>
-        <p class="text-gray-600 mb-3">Capital de trabajo para herramientas y gastos personales.</p>
-        <a href="#individual" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Solicitar</a>
-      </div>
-
-      <!-- Tarjeta 3 -->
-      <div class="item bg-white rounded-lg shadow p-5 text-center">
-        <img class="mx-auto mb-4 w-20 h-20" src="https://placehold.co/80x80/66ff66/fff?text=3" alt="">
-        <h3 class="text-lg font-semibold mb-2">LUNMA Agropecuario</h3>
-        <p class="text-gray-600 mb-3">Financiamiento para cultivo, ganadería y piscicultura.</p>
-        <a href="#agropecuario" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Solicitar</a>
-      </div>
-
-      <!-- Tarjeta 4 -->
-      <div class="item bg-white rounded-lg shadow p-5 text-center">
-        <img class="mx-auto mb-4 w-20 h-20" src="https://placehold.co/80x80/ffcc66/fff?text=4" alt="">
-        <h3 class="text-lg font-semibold mb-2">Crédito Educativo</h3>
-        <p class="text-gray-600 mb-3">Apoyo para estudios y capacitación profesional.</p>
-        <a href="#educativo" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Solicitar</a>
-      </div>
-
-      <!-- Tarjeta 5 -->
-      <div class="item bg-white rounded-lg shadow p-5 text-center">
-        <img class="mx-auto mb-4 w-20 h-20" src="https://placehold.co/80x80/cc66ff/fff?text=5" alt="">
-        <h3 class="text-lg font-semibold mb-2">Crédito Emprendedor</h3>
-        <p class="text-gray-600 mb-3">Financiamiento para iniciar o expandir tu negocio.</p>
-        <a href="#emprendedor" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Solicitar</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- jQuery + Owl Carousel -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-  <script>
-    $(document).ready(function(){
-      $(".owl-carousel").owlCarousel({
-        loop:true,
-        margin:20,
-        nav:true,
-        dots:true,
-        navText:['‹','›'],
-        responsive:{
-          0:{ items:1 },
-          640:{ items:2 },
-          1024:{ items:3 }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Servicios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <style>
+        /* Estilos personalizados para los botones de navegación */
+        .owl-nav button {
+            @apply absolute top-1/2 -translate-y-1/2 bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg text-2xl;
         }
-      });
-    });
-  </script>
+        .owl-nav .owl-prev { left: -30px; }
+        .owl-nav .owl-next { right: -30px; }
+        .owl-nav button:hover { @apply bg-blue-700; }
+        
+        /* Ocultar botones en pantallas pequeñas si no los necesitas */
+        @media (max-width: 640px) {
+            .owl-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-10 font-sans">
 
+    <div class="container mx-auto max-w-7xl">
+        <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Nuestros Productos</h2>
+
+        <div class="owl-carousel owl-theme relative">
+            
+            <div class="item flex-shrink-0 bg-white text-black p-4 flex flex-col space-y-3 rounded-lg shadow-md">
+                <div class="flex p-4 border-b border-gray-200">
+                    <div class="w-1/2 flex flex-col justify-center">
+                        <h3 class="font-bold text-2xl text-[#02033F] text-left">
+                            Productivo Individual
+                        </h3>
+                        <p class="text-gray-500 text-sm font-medium text-left">
+                            Impulsa tu negocio a tu ritmo.
+                        </p>
+                    </div>
+                    <div class="w-1/2 flex items-center justify-end">
+                        <div class="flex items-center justify-center bg-[#004DF4] rounded-full w-20 h-20">
+                            <img loading="lazy" src="img/icons/updateImg/user.png" alt="Ícono de Producto Individual" class="w-9 h-9 object-contain">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/paper-money-two.png" alt="dinero" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Solicita desde $5,000 hasta $50,000 según tu capacidad de pago.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/calendar-dot.png" alt="calendario" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Pagos semanales o catorcenales, tú eliges.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/protect.png" alt="seguro" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Sin seguros obligatorios ni pagos anticipados.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/fireworks.png" alt="beneficio" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Beneficios a clientes con pago puntual y buen comportamiento de pago.
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-auto">
+                    <a href="productoIndividual.html" class="block bg-[#00AEF4] text-white rounded-lg py-3 px-8 text-center" title="Más información sobre crédito Producto Individual">
+                        ¡Más información!
+                    </a>
+                </div>
+            </div>
+
+            <div class="item flex-shrink-0 bg-white text-black p-4 flex flex-col space-y-3 rounded-lg shadow-md">
+                <div class="flex p-4 border-b border-gray-200">
+                    <div class="w-1/2 flex flex-col justify-center">
+                        <h3 class="font-bold text-2xl text-[#02033F] text-left">
+                            Productivo Solidario
+                        </h3>
+                        <p class="text-gray-500 text-sm font-medium text-left">
+                            Crece junto a tus conocidos.
+                        </p>
+                    </div>
+                    <div class="w-1/2 flex items-center justify-end">
+                        <div class="flex items-center justify-center bg-[#004DF4] rounded-full w-20 h-20">
+                            <img loading="lazy" src="img/icons/updateImg/users2.png" alt="Ícono de Producto Solidario" class="w-9 h-9 object-contain">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/paper-money-two.png" alt="dinero" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Solicita desde $3,000 hasta $50,000 según tu capacidad de pago.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/calendar-dot.png" alt="calendario" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Pagos semanales o catorcenales, tú eliges.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/protect.png" alt="seguro" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Sin seguros obligatorios ni pagos anticipados.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/fireworks.png" alt="beneficio" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Beneficios a clientes con pago puntual y buen comportamiento de pago.
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-auto">
+                    <a href="productoSolidario.html" class="block bg-[#00AEF4] text-white rounded-lg py-3 px-8 text-center" title="Más información sobre crédito Producto Solidario">
+                        ¡Más información!
+                    </a>
+                </div>
+            </div>
+
+            <div class="item flex-shrink-0 bg-white text-black p-4 flex flex-col space-y-3 rounded-lg shadow-md">
+                <div class="flex p-4 border-b border-gray-200">
+                    <div class="w-1/2 flex flex-col justify-center">
+                        <h3 class="font-bold text-2xl text-[#02033F] text-left">
+                            Emprende Tecnología
+                        </h3>
+                        <p class="text-gray-500 text-sm font-medium text-left">
+                            La mejor manera de actualizar tu tecnología.
+                        </p>
+                    </div>
+                    <div class="w-1/2 flex items-center justify-end">
+                        <div class="flex items-center justify-center bg-[#004DF4] rounded-full w-20 h-20">
+                            <img loading="lazy" src="img/icons/updateImg/iphone.png" alt="Ícono de Producto Tecnología" class="w-9 h-9 object-contain">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/paper-money-two.png" alt="dinero" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Compra de manera inteligente a crédito y con los mejores precios.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/calendar-dot.png" alt="calendario" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Pagos semanales o catorcenales, tú eliges.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/protect.png" alt="seguro" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Productos garantizados con proveedores.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/fireworks.png" alt="beneficio" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Sin enganche, ni pagos escondidos, sólo tu crédito.
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-auto">
+                    <a href="productoTecnologia.html" class="block bg-[#00AEF4] text-white rounded-lg py-3 px-8 text-center" title="Más información sobre crédito Producto Tecnología">
+                        ¡Más información!
+                    </a>
+                </div>
+            </div>
+
+            <div class="item flex-shrink-0 bg-white text-black p-4 flex flex-col space-y-3 rounded-lg shadow-md">
+                <div class="flex p-4 border-b border-gray-200">
+                    <div class="w-1/2 flex flex-col justify-center">
+                        <h3 class="font-bold text-2xl text-[#02033F] text-left">
+                            Emprende Motocicleta
+                        </h3>
+                        <p class="text-gray-500 text-sm font-medium text-left">
+                            Tu movilidad, tu herramienta de trabajo.
+                        </p>
+                    </div>
+                    <div class="w-1/2 flex items-center justify-end">
+                        <div class="flex items-center justify-center bg-[#004DF4] rounded-full w-20 h-20">
+                            <img loading="lazy" src="img/icons/updateImg/mounted.png" alt="Ícono de Producto Motocicleta" class="w-9 h-9 object-contain">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/paper-money-two.png" alt="dinero" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Paga tu crédito a 12 o 24 meses, como tú decidas.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/calendar-dot.png" alt="calendario" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Pagos semanales, catorcenales o mensuales.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/protect.png" alt="seguro" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            1 año de seguro incluido con tu motocicleta.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/fireworks.png" alt="beneficio" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Crédito accesible y variedad de modelos.
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-auto">
+                    <a href="productoMotocicleta.html" class="block bg-[#00AEF4] text-white rounded-lg py-3 px-8 text-center" title="Más información sobre crédito Producto Motocicleta">
+                        ¡Más información!
+                    </a>
+                </div>
+            </div>
+
+            <div class="item flex-shrink-0 bg-white text-black p-4 flex flex-col space-y-3 rounded-lg shadow-md">
+                <div class="flex p-4 border-b border-gray-200">
+                    <div class="w-1/2 flex flex-col justify-center">
+                        <h3 class="font-bold text-2xl text-[#02033F] text-left">
+                            EcoEmprende
+                        </h3>
+                        <p class="text-gray-500 text-sm font-medium text-left">
+                            Ahorra en el presente e invierte en el futuro.
+                        </p>
+                    </div>
+                    <div class="w-1/2 flex items-center justify-end">
+                        <div class="flex items-center justify-center bg-[#004DF4] rounded-full w-20 h-20">
+                            <img loading="lazy" src="img/icons/updateImg/sleaves.png" alt="Ícono de Producto EcoEmprende" class="w-9 h-9 object-contain">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/paper-money-two.png" alt="dinero" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Llévate tu calentador solar a crédito y con los mejores precios.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/calendar-dot.png" alt="calendario" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Pagos semanales o catorcenales, tú eliges.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/protect.png" alt="seguro" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Productos garantizados con proveedores.
+                        </p>
+                    </div>
+                    <div class="sm:p-4 py-3 border-b border-gray-200 flex items-center">
+                        <div class="hidden sm:flex flex-shrink-0 bg-[#004DF4] rounded-full w-10 h-10 items-center justify-center">
+                            <img loading="lazy" src="img/icons/updateImg/fireworks.png" alt="beneficio" class="w-6 h-6">
+                        </div>
+                        <p class="text-sm ml-3 text-gray-900">
+                            Tecnología ecológica que te ayuda a ahorrar desde los primeros meses.
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-auto">
+                    <a href="productoEcoEmprende.html" class="block bg-[#00AEF4] text-white rounded-lg py-3 px-8 text-center" title="Más información sobre crédito Productio EcoEmprende">
+                        ¡Más información!
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                dots: true,
+                navText: ['<', '>'], // Se corrigió de ❮❯ a <> por compatibilidad
+                responsive: {
+                    0: { items: 1 },
+                    640: { items: 2 },
+                    1024: { items: 3 }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
