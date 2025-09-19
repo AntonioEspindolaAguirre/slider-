@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrusel Owl + Tailwind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <style>
+    /* Botones personalizados con Tailwind */
+    .owl-nav button {
+      @apply absolute top-1/2 -translate-y-1/2 bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg;
+    }
+    .owl-nav .owl-prev { left: -20px; }
+    .owl-nav .owl-next { right: -20px; }
+    .owl-nav button:hover { @apply bg-blue-700; }
+  </style>
+</head>
+<body class="bg-gray-100 p-10">
+
+  <div class="container mx-auto">
+    <h2 class="text-2xl font-bold mb-6 text-center">Nuestros Servicios</h2>
+
+    <div class="owl-carousel owl-theme relative">
+      <!-- Tarjeta 1 -->
+      <div class="item bg-white rounded-lg shadow p-5 text-center">
+        <img class="mx-auto mb-4 w-20 h-20" src="https://placehold.co/80x80/ff6666/fff?text=1" alt="">
+        <h3 class="text-lg font-semibold mb-2">Crédito Grupal</h3>
+        <p class="text-gray-600 mb-3">Capital para actividades lícitas y mejoras de vivienda.</p>
+        <a href="#grupal" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Solicitar</a>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="item bg-white rounded-lg shadow p-5 text-center">
+        <img class="mx-auto mb-4 w-20 h-20" src="https://placehold.co/80x80/66ccff/fff?text=2" alt="">
+        <h3 class="text-lg font-semibold mb-2">Crédito Individual</h3>
+        <p class="text-gray-600 mb-3">Capital de trabajo para herramientas y gastos personales.</p>
+        <a href="#individual" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Solicitar</a>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="item bg-white rounded-lg shadow p-5 text-center">
+        <img class="mx-auto mb-4 w-20 h-20" src="https://placehold.co/80x80/66ff66/fff?text=3" alt="">
+        <h3 class="text-lg font-semibold mb-2">LUNMA Agropecuario</h3>
+        <p class="text-gray-600 mb-3">Financiamiento para cultivo, ganadería y piscicultura.</p>
+        <a href="#agropecuario" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Solicitar</a>
+      </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="item bg-white rounded-lg shadow p-5 text-center">
+        <img class="mx-auto mb-4 w-20 h-20" src="https://placehold.co/80x80/ffcc66/fff?text=4" alt="">
+        <h3 class="text-lg font-semibold mb-2">Crédito Educativo</h3>
+        <p class="text-gray-600 mb-3">Apoyo para estudios y capacitación profesional.</p>
+        <a href="#educativo" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Solicitar</a>
+      </div>
+
+      <!-- Tarjeta 5 -->
+      <div class="item bg-white rounded-lg shadow p-5 text-center">
+        <img class="mx-auto mb-4 w-20 h-20" src="https://placehold.co/80x80/cc66ff/fff?text=5" alt="">
+        <h3 class="text-lg font-semibold mb-2">Crédito Emprendedor</h3>
+        <p class="text-gray-600 mb-3">Financiamiento para iniciar o expandir tu negocio.</p>
+        <a href="#emprendedor" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Solicitar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery + Owl Carousel -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+        loop:true,
+        margin:20,
+        nav:true,
+        dots:true,
+        navText:['‹','›'],
+        responsive:{
+          0:{ items:1 },
+          640:{ items:2 },
+          1024:{ items:3 }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
